@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>{{ invoice.UID }}</h3>
+    <h3>{{ invoice.cust_name }}</h3>
+    <h3>{{ invoice.address }}</h3>
+
+    <table style="text-align:center; border: 1px solid black;">
+      <thead>
+        <th>Item Code</th>
+        <th>Item Name</th>
+        <th>Item Quantity</th>
+        <th>Price Pre Unit</th>
+        <th>Total Price</th>
+      </thead>
+      {%for item in invoice.items%}
+      <tr style="border: none;">
+        <td>{{item.item_code}}</td>
+        <td>{{item.item_name}}</td>
+        <td>{{item.item_quant}}</td>
+        <td>{{item.price_per_unit}}</td>
+        <td style="border-left: 1px solid black;">{{item.item_price}}</td>
+      </tr>
+      
+      {%endfor%}
+      <tr>
+        <td colspan="5" style="text-align: right;">Total Price:</td>
+        
+      </tr>
+  </table>
+{% endblock content %}

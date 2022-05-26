@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Invoice
+{% endblock title %}
+
+{% block content %}
+  <h1>Hello</h1>
+    {% for invoice in invoice_list %}
+        <div style="padding: 1rem;" class="user">
+            {{ invoice }} 
+            <a href="{% url 'invoice' invoice.UID%}" target="_blank"><button class="btn btn-primary">Download pdf</button></a>
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock content %}
